@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularcrypto-574e4": {
+      "hosting": {
+        "proyecto_angular": [
+          "angularcrypto-574e4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularcrypto-574e4"
+  }
+}

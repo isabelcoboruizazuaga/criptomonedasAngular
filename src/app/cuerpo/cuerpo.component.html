@@ -1,8 +1,25 @@
-<p>cuerpo works!</p><!--
-<button (click)="lanzaPeticionAJAX()">pide</button>-->
+<p>cuerpo works!</p>
+<button (click)="escriboEnBD()">escribeEnBD</button>
+
+<!--MODO 1-->
+<!--
+<ul>
+  <li *ngFor="let dato of datosDBD | async">
+    {{ dato.nombre }}
+  </li>
+</ul>-->
+
+<!--MODO 2-->
+
+<ul>
+  <li *ngFor="let dato of datosModo2">
+    {{ dato.nombre }}
+  </li>
+</ul>
+
 
 <div class="d-flex flex-wrap p-2"> 
-<div class="card mb-3 p-1 m-2 " *ngFor="let moneda of datosApi.listaMonedas" style="width: 250px; ">
+<div class="card mb-3 p-1 m-2 " *ngFor="let moneda of monedasVigiladas" style="width: 250px; ">
     <div class="row g-0 d-flex align-items-center ">
       <div class="col-md-4">
         <img src="{{moneda.image.small}}"

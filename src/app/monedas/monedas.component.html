@@ -1,0 +1,32 @@
+<div class="d-flex flex-wrap p-2">
+    <div class="card mb-3 p-1 m-2 " *ngFor="let moneda of monedasVigiladas" style="width: 250px; ">
+        <div class="row g-0 d-flex align-items-center ">
+            <div class="col-md-4">
+                <img src="{{moneda.image.small}}" alt="Trendy Pants and Shoes" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{moneda.name}}</h5>
+                    <p class="card-text">{{moneda.market_data.price_change_percentage_24h}}</p>
+                    <p class="card-text">
+                        <small class="text-muted">{{moneda.market_data.current_price.eur}}</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>You can introduce custom directives for table headers to sort columns</p>
+<!--
+imagen				moneda.image.thumb/small
+nombre				moneda.name
+simbolo				moneda.symbol
+precio en euros			moneda.current_price.eur
+capitalizacion en euros		market_cap.eur
+volumen en euros		moneda.total_volume.eur
+valores + altos 24h		moneda.high_24h.eur
+valores + bajos 24h		moneda.low_24h.eur
+				        moneda.price_change_percentage_24h
+
+-->

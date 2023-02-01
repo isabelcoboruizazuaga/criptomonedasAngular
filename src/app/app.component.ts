@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto_angular';
+
+  monedasVigiladas= new Array();
+
+  addToSelected(moneda:Object){
+    this.monedasVigiladas.push(moneda);
+    console.log(moneda);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AccesoApiService } from '../acceso-api.service';
 
@@ -13,16 +13,20 @@ export class CabeceraComponent {
   public currentPage =1;
 
 	public isCollapsed = true;
-  public monedasVigiladas= new Array();
+  
+   monedasVigiladas= new Array();
 
+  @Output() monedaSeleccionada=new EventEmitter<Object>();
 
   constructor( public datosApi:AccesoApiService){
 
   }
 
   nuevoVigilado(moneda:Object){
-    this.monedasVigiladas.push(moneda);
-    console.log(this.monedasVigiladas);
+    this.monedaSeleccionada.emit(moneda);
+
+    /*this.monedasVigiladas.push(moneda);
+    console.log(this.monedasVigiladas);*/
   }
 
 }
