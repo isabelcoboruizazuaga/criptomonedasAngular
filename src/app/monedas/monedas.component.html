@@ -1,21 +1,4 @@
-<div class="d-flex flex-wrap p-2">
-    <div class="card mb-3 p-1 m-2 " *ngFor="let moneda of monedasVigiladas" style="width: 250px; ">
-        <div class="row g-0 d-flex align-items-center ">
-            <div class="col-md-4">
-                <img src="{{moneda.image.small}}" alt="Trendy Pants and Shoes" class="img-fluid rounded-start" />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{moneda.name}}</h5>
-                    <p class="card-text">{{moneda.market_data.price_change_percentage_24h}}</p>
-                    <p class="card-text">
-                        <small class="text-muted">{{moneda.market_data.current_price.eur}}</small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <p>You can introduce custom directives for table headers to sort columns</p>
 <!--
@@ -30,3 +13,37 @@ valores + bajos 24h		moneda.low_24h.eur
 				        moneda.price_change_percentage_24h
 
 -->
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Moneda</th>
+			<th scope="col">Simbolo</th>
+			<th scope="col">Precio en euros</th>
+			<th scope="col">Capitalizacion en euros</th>
+			<th scope="col">Volumen en euros</th>
+			<th scope="col">Valores + altos 24h</th>
+			<th scope="col">Valores + bajos 24h</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let moneda of monedasVigiladas; index as i">
+			<th scope="row">{{ i + 1 }}</th>
+			<td>
+				<img
+					src={{moneda.image.thumb}}
+					class="me-2"
+					style="width: 20px"
+				/>
+				{{ moneda.name }}
+			</td>
+			<td>{{ moneda.symbol }}</td>
+			<td>{{ moneda.market_data.current_price.eur  }}€</td>
+			<td>{{ moneda.market_data.market_cap.eur | number }}€</td>
+			<td>{{ moneda.market_data.total_volume.eur | number }}€</td>
+			<td>{{ moneda.market_data.high_24h.eur | number }}€</td>
+			<td>{{ moneda.market_data.low_24h.eur | number }}€</td>
+		</tr>
+	</tbody>
+</table>

@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { PieComponent } from './pie/pie.component';
+import { MonedasComponent } from './monedas/monedas.component';
+import { DetalleMonedaComponent } from './detalle-moneda/detalle-moneda.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,7 +20,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppComponent,
     CabeceraComponent,
     CuerpoComponent,
-    PieComponent
+    PieComponent,
+    MonedasComponent,
+    DetalleMonedaComponent
   ],
   imports: [
     BrowserModule,
