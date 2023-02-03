@@ -5,11 +5,13 @@ import { Injectable, Input } from '@angular/core';
   providedIn: 'root'
 })
 export class AccesoApiService {
+
   @Input() listaMonedas= new Array();
+  @Input() moneda= Object;
 
   constructor(private http:HttpClient) {
-    this.obtenerlistamonedas()
-    
+    this.obtenerlistamonedas();    
+    this.obtenerInfoMoneda('bitcoin');
    }
 
    obtenerlistamonedas(){
@@ -20,11 +22,14 @@ export class AccesoApiService {
     );
    }
 
-   obtenerInfoMoneda(){
-    this.http.get("https://api.coingecko.com/api/v3/coins").subscribe(
+   obtenerInfoMoneda(id:string){
+    this.http.get("https://api.coingecko.com/api/v3/coins/bitcoin").subscribe(
       (datos:any)=>{
-        //this.monedas=(datos);
+        this.moneda=datos;
       }
     );
    }
+
+   
+
 }

@@ -14,6 +14,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { CabeceraPortfolioComponent } from './cabecera-portfolio/cabecera-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     CuerpoComponent,
     PieComponent,
     MonedasComponent,
-    DetalleMonedaComponent
+    DetalleMonedaComponent,
+    CabeceraPortfolioComponent
   ],
   imports: [
     BrowserModule,

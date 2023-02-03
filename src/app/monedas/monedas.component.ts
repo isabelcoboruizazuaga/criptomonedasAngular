@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-monedas',
@@ -9,5 +9,9 @@ export class MonedasComponent {
 
   @Input() monedasVigiladas=new Array();
 
+  @Output() monedaClick=new EventEmitter<Object>();
 
+  monedaClicada(moneda: Object){    
+    this.monedaClick.emit(moneda);
+  }
 }

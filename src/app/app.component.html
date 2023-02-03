@@ -1,2 +1,5 @@
-<app-cabecera (monedaSeleccionada)="addToSelected($event)"></app-cabecera>
-<app-monedas [monedasVigiladas]="monedasVigiladas"></app-monedas>
+<app-cabecera></app-cabecera>
+<app-cabecera-portfolio (monedaSeleccionada)="addToSelected($event)"></app-cabecera-portfolio>
+<app-monedas [monedasVigiladas]="monedasVigiladas" (monedaClick)="mostrarDetalle($event)"></app-monedas>
+
+<app-detalle-moneda *ngIf="mostrarDet" [monedas]="monedas"></app-detalle-moneda>

@@ -1,1 +1,46 @@
-<p>detalle-moneda works!</p>
+<h1>HOLA MONEDA</h1>
+<div class="card mb-3" *ngFor="let moneda of monedas">
+    <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="card-img-top" alt="Wild Landscape" />
+    <div class="card-body">
+        <div class="card-title">
+            <img src={{moneda.image.small}} />
+            <h2>{{moneda.name}}</h2>
+        </div>
+        <div class="card-subtitle d-flex">
+            <h3>{{moneda.market_data.current_price.eur}}€</h3>
+            <h4>{{moneda.symbol}}</h4>
+        </div>
+        <p class="card-text">
+            {{moneda.description.en}}
+        </p>
+        <p class="card-text">
+            <small class="text-muted" *ngIf="moneda.genesis_date">Creado en {{moneda.genesis_date}} </small>
+        </p>
+
+        <p class="card-text">
+            <small class="text-muted" *ngIf="moneda.links.repos_url.github[0]">
+                <a href={{moneda.links.repos_url.github[0]}}>Github </a>
+            </small>
+            <small class="text-muted" *ngIf="moneda.links.subreddit_url">
+                <a href={{moneda.links.subreddit_url}}>Reddit </a>
+            </small>
+            <small class="text-muted" *ngIf="moneda.links.blockchain_site[0]">
+                <a href={{moneda.links.blockchain_site[0]}}>Web </a>
+            </small>
+        </p>
+    </div>
+</div>
+<!--
+moneda.id
+moneda.image.small
+moneda.symbol
+moneda.description
+
+moneda.links.repos_url.github[0]
+moneda.links.subreddit_url
+moneda.links.blockchain_site[0]
+
+moneda.genesis_date
+moneda.market_data.current_price
+
+  -->

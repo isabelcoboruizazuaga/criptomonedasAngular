@@ -1,6 +1,3 @@
-
-
-<p>You can introduce custom directives for table headers to sort columns</p>
 <!--
 imagen				moneda.image.thumb/small
 nombre				moneda.name
@@ -23,12 +20,12 @@ valores + bajos 24h		moneda.low_24h.eur
 			<th scope="col">Precio en euros</th>
 			<th scope="col">Capitalizacion en euros</th>
 			<th scope="col">Volumen en euros</th>
-			<th scope="col">Valores + altos 24h</th>
-			<th scope="col">Valores + bajos 24h</th>
+			<th scope="col">Valores máx. 24h</th>
+			<th scope="col">Valores mín. 24h</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let moneda of monedasVigiladas; index as i">
+		<tr *ngFor="let moneda of monedasVigiladas; index as i" (click)="monedaClicada(moneda)">
 			<th scope="row">{{ i + 1 }}</th>
 			<td>
 				<img
