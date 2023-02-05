@@ -15,10 +15,13 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { CabeceraPortfolioComponent } from './cabecera-portfolio/cabecera-portfolio.component';
+import * as CanvasJSAngularChart from '../assets/canvasjs/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 @NgModule({
   declarations: [
     AppComponent,
+    CanvasJSChart,
     CabeceraComponent,
     CuerpoComponent,
     PieComponent,

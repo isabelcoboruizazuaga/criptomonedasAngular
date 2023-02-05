@@ -31,16 +31,10 @@ export class AppComponent {
   }
 
   mostrarDetalle(moneda:any){
-    
-    console.log(
-      "aaaaaaaa");
     this.http.get("https://api.coingecko.com/api/v3/coins/"+moneda.id).subscribe(
       (datos:any)=>{
         this.moneda= datos;
         this.monedas[0]=this.moneda;
-        
-        console.log(
-          this.monedas[0]);
           
           this.mostrarDet=true;
       }
