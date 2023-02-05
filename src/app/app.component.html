@@ -1,5 +1,2 @@
 <app-cabecera></app-cabecera>
-<app-cabecera-portfolio (monedaSeleccionada)="addToSelected($event)"></app-cabecera-portfolio>
-<app-monedas [monedasVigiladas]="monedasVigiladas" (monedaClick)="mostrarDetalle($event)"></app-monedas>
-
-<app-detalle-moneda *ngIf="mostrarDet" [monedas]="monedas"></app-detalle-moneda>
+<router-outlet></router-outlet>

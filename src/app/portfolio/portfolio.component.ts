@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-portfolio',
+  templateUrl: './portfolio.component.html',
+  styleUrls: ['./portfolio.component.css']
 })
-export class AppComponent {
-  title = 'proyecto_angular';
+export class PortfolioComponent {
 
   monedasVigiladas = new Array();
   mostrarDet=false;
