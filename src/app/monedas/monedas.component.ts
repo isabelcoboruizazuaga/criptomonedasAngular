@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AccesoApiService } from '../acceso-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-monedas',
@@ -7,11 +9,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MonedasComponent {
 
-  @Input() monedasVigiladas=new Array();
+  @Input() monedasVigiladas = new Array();
 
-  @Output() monedaClick=new EventEmitter<Object>();
+  constructor(private router: Router) {
 
-  monedaClicada(moneda: Object){    
-    this.monedaClick.emit(moneda);
+  }
+
+  monedaClicada(moneda: any) {
+    this.router.navigate(['/detalle', moneda.id]);
   }
 }

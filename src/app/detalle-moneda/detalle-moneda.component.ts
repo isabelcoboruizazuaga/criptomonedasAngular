@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AccesoApiService } from '../acceso-api.service';
 
 @Component({
@@ -9,20 +10,33 @@ import { AccesoApiService } from '../acceso-api.service';
 })
 export class DetalleMonedaComponent implements AfterViewInit {
 
-   @Input() monedas=new Array();
-   dataPoints:any = [];
-   chart:any;
+  monedas = new Array;
+  dataPoints: any = [];
+  chart: any;
+  id: any;
 
-  constructor(private http:HttpClient) {
+
+  constructor(public accesoApi: AccesoApiService, private router: ActivatedRoute) {
+
+  }
+  ngOnInit() {
+    this.router.params.subscribe(params => {
+      this.id = params['id'];
+    })
+
+    this.accesoApi.obtenerInfoMoneda(this.id).subscribe(
+      (datos: any) => {
+        this.monedas[0] = datos;
+      }
+    );
   }
 
-
-   chartOptions = {
+  chartOptions = {
     theme: "light2",
     zoomEnabled: true,
     exportEnabled: true,
     title: {
-      text:"Precio en 30 días"
+      text: "Precio en 30 días"
     },
     subtitles: [{
       text: "Loading Data...",
@@ -43,19 +57,19 @@ export class DetalleMonedaComponent implements AfterViewInit {
       dataPoints: this.dataPoints
     }]
   }
-  
+
   /*Creación de la gráfica */
   getChartInstance(chart: object) {
     this.chart = chart;
   }
-  
+
   /*Inicialización de la gráfica */
   ngAfterViewInit() {
-    this.http.get("https://api.coingecko.com/api/v3/coins/"+this.monedas[0].id+"/market_chart?vs_currency=eur&days=30").subscribe(
-      (datos:any)=>{
+    this.accesoApi.obtenerDatosChart(this.id).subscribe(
+      (datos: any) => {
         let data = datos;
-        for(let i = 0; i < data.prices.length; i++){
-          this.dataPoints.push({x: new Date(data.prices[i][0]), y: Number(data.prices[i][1]) });
+        for (let i = 0; i < data.prices.length; i++) {
+          this.dataPoints.push({ x: new Date(data.prices[i][0]), y: Number(data.prices[i][1]) });
         }
         this.chart.subtitles[0].remove();
       }

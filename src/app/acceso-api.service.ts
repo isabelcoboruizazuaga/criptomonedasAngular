@@ -11,7 +11,6 @@ export class AccesoApiService {
 
   constructor(private http:HttpClient) {
     this.obtenerlistamonedas();    
-    this.obtenerInfoMoneda('bitcoin');
    }
 
    obtenerlistamonedas(){
@@ -24,11 +23,11 @@ export class AccesoApiService {
    }
 
    obtenerInfoMoneda(id:string){
-    this.http.get("https://api.coingecko.com/api/v3/coins/bitcoin").subscribe(
-      (datos:any)=>{
-        this.moneda=datos;
-      }
-    );
+    return this.http.get("https://api.coingecko.com/api/v3/coins/"+id)
+   }
+
+   obtenerDatosChart(id:string){
+    return this.http.get("https://api.coingecko.com/api/v3/coins/"+id+"/market_chart?vs_currency=eur&days=30")
    }
 
    

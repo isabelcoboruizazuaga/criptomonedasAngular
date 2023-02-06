@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 export class PortfolioComponent {
 
   monedasVigiladas = new Array();
-  mostrarDet=false;
   moneda!: Object;
   monedas=new Array();
 
@@ -28,15 +27,4 @@ export class PortfolioComponent {
       localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
     }
   }
-
-  mostrarDetalle(moneda:any){
-    this.http.get("https://api.coingecko.com/api/v3/coins/"+moneda.id).subscribe(
-      (datos:any)=>{
-        this.moneda= datos;
-        this.monedas[0]=this.moneda;
-          
-          this.mostrarDet=true;
-      }
-    );
-  } 
 }

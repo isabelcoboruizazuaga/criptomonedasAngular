@@ -28,6 +28,7 @@ const routes: Routes=[
   {path: '', component: InicioComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'portfolio', component: PortfolioComponent},
+  {path: 'detalle/:id', component: DetalleMonedaComponent},
 
 ]
 
