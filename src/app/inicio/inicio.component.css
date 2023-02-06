@@ -1,0 +1,134 @@
+body {
+    position: relative;
+    overflow: hidden;
+
+    /*Para que no haya overlap entre el navbar y el contenido*/
+    padding-top: 50px;
+
+    font-family: 'Taviraj', serif;
+
+    color: white !important;
+}
+#img-header{
+    height: 30rem;
+    width: 97vw;
+}
+/*Títulos y subtítulos*/
+h1,
+h2 {
+    font-family: 'Playfair Display SC', serif;
+}
+
+h3,
+h4 {
+    font-family: 'Playball', cursive;
+}
+
+/*NAVBAR*/
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	background-color: rgb(87, 177, 209);
+}
+
+.invert { filter: invert(100%); }
+
+/*-----CARRUSEL------*/
+/*Item del carrusel*/
+.carousel-item {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/*Vídeo*/
+#titulo video {
+    width: 100vw;
+}
+
+/*Texto del carrusel*/
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+}
+
+/*SOBRE NOSOTROS*/
+#sobre-nosotros img {
+    width: 100%;
+}
+
+/*OPINIONES*/
+#opiniones .card {
+    background-color: rgb(76, 78, 185) 
+}
+
+
+/*SERVICIOS*/
+#servicios .btn {
+
+    background-color: rgb(87, 177, 209);
+    border-color: rgb(76, 78, 185) 
+
+}
+
+#servicios .btn h4 {
+    color: rgb(76, 78, 185) !important;
+}
+
+
+#servicios .card{
+
+    background-color: rgb(76, 78, 185) !important;
+    border-color: rgb(87, 177, 209);
+}
+
+#servicios button {
+    width: 80px;
+    height: 90px;
+    padding: 0;
+    border: none;
+}
+
+#servicios img {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/*SUSCRIBETE*/
+#suscribete button{
+    background-color: rgb(76, 78, 185);
+    border-radius: 2rem;
+    font-size: larger;
+}
+
+.btn-outline-light:hover{
+    color: rgb(87, 177, 209) !important;
+}
+
+.modal-content{    
+    background-color: rgb(87, 177, 209) !important;
+}
+
+/*FOOTER*/
+footer a{
+    text-decoration: none;
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+
+footer i{
+    font-size: 2.5rem;
+}
+
+/*SCROLL SPY*/
+.scrollspy-example {
+    position: relative;
+    height: 90vh;
+    overflow: auto;
+
+    overflow-x: hidden;
+}
+
+.card {
+    width: 18rem;
+}
