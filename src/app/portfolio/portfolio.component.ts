@@ -23,8 +23,7 @@ export class PortfolioComponent {
   }
 
   addToSelected(moneda: any) {
-    //let miMoneda=this.monedasVigiladas.find(x => x.id === moneda.id);
-    if (!this.monedasVigiladas.includes(moneda)) {
+    if (!this.monedasVigiladas.find(x => x.id === moneda.id)) {
       this.monedasVigiladas.push(moneda);
       localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
     }

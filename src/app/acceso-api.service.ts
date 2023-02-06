@@ -15,9 +15,10 @@ export class AccesoApiService {
    }
 
    obtenerlistamonedas(){
-    this.http.get("https://api.coingecko.com/api/v3/coins").subscribe(
+    this.http.get("https://api.coingecko.com/api/v3/coins/").subscribe(
       (datos:any)=>{
         this.listaMonedas=(datos);
+        console.log(datos)
       }
     );
    }

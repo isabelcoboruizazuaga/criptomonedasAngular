@@ -19,6 +19,8 @@ import { CabeceraPortfolioComponent } from './cabecera-portfolio/cabecera-portfo
 import * as CanvasJSAngularChart from '../assets/canvasjs/canvasjs.angular.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 
@@ -50,7 +52,8 @@ const routes: Routes=[
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes),    
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

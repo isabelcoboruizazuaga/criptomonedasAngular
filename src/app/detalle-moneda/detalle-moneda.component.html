@@ -1,8 +1,8 @@
-<h1>HOLA MONEDA</h1>
 <div class="card mb-3" *ngFor="let moneda of monedas">
-     <div>
-        <canvasjs-chart  class="card-img-top"[options]="chartOptions" [styles]="{width: '100%', height:'360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>
-    </div>                        
+    <div>
+        <canvasjs-chart class="card-img-top" [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"
+            (chartInstance)="getChartInstance($event)"></canvasjs-chart>
+    </div>
     <div class="card-body">
         <div class="card-title">
             <img src={{moneda.image.small}} />
@@ -12,9 +12,20 @@
             <h3>{{moneda.market_data.current_price.eur}}€</h3>
             <h4>{{moneda.symbol}}</h4>
         </div>
-        <p class="card-text">
-            {{moneda.description.en}}
-        </p>
+
+        <!--Descripción-->
+        <ng-container *ngIf="moneda.description.es;else descripcionIngles;">
+            <p class="card-text">{{moneda.description.es}}</p>
+        </ng-container>
+        <ng-template #descripcionIngles>
+            <ng-container *ngIf="moneda.description.en;else noDescripcion">
+                <p class="card-text">{{moneda.description.en}}</p></ng-container>
+        </ng-template>
+        <ng-template #noDescripcion>
+            <p class="card-text">"No hay una descripción disponible"</p>
+        </ng-template>
+
+       
         <p class="card-text">
             <small class="text-muted" *ngIf="moneda.genesis_date">Creado en {{moneda.genesis_date}} </small>
         </p>
