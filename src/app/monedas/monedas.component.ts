@@ -15,7 +15,12 @@ export class MonedasComponent {
 
   }
 
+  @Output() monedaBorrada: EventEmitter<any> = new EventEmitter();
+
   monedaClicada(moneda: any) {
     this.router.navigate(['/detalle', moneda.id]);
+  }
+  borrarMonedaClicada(moneda: Object) {      
+    this.monedaBorrada.emit(moneda);  
   }
 }

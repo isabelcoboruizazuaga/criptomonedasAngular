@@ -22,12 +22,13 @@ valores + bajos 24h		moneda.low_24h.eur
 			<th scope="col">Volumen en euros</th>
 			<th scope="col">Valores máx. 24h</th>
 			<th scope="col">Valores mín. 24h</th>
+			<th scope="col">Borrar</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let moneda of monedasVigiladas; index as i" (click)="monedaClicada(moneda)">
+		<tr *ngFor="let moneda of monedasVigiladas; index as i" >
 			<th scope="row">{{ i + 1 }}</th>
-			<td>
+			<td (click)="monedaClicada(moneda)">
 				<img
 					src={{moneda.image.thumb}}
 					class="me-2"
@@ -35,12 +36,13 @@ valores + bajos 24h		moneda.low_24h.eur
 				/>
 				{{ moneda.name }}
 			</td>
-			<td>{{ moneda.symbol }}</td>
-			<td>{{ moneda.market_data.current_price.eur  }}€</td>
-			<td>{{ moneda.market_data.market_cap.eur | number }}€</td>
-			<td>{{ moneda.market_data.total_volume.eur | number }}€</td>
-			<td>{{ moneda.market_data.high_24h.eur | number }}€</td>
-			<td>{{ moneda.market_data.low_24h.eur | number }}€</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.symbol }}</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.market_data.current_price.eur  }}€</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.market_data.market_cap.eur | number }}€</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.market_data.total_volume.eur | number }}€</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.market_data.high_24h.eur | number }}€</td>
+			<td (click)="monedaClicada(moneda)">{{ moneda.market_data.low_24h.eur | number }}€</td>
+			<td><button class="btn btn-danger" (click)="borrarMonedaClicada(moneda)" >Borrar</button></td>
 		</tr>
 	</tbody>
 </table>

@@ -10,23 +10,20 @@ import { AccesoApiService } from '../acceso-api.service';
 export class CabeceraPortfolioComponent {
   public page = 1;
   public pageSize = 8;
-  public currentPage =1;
+  public currentPage = 1;
 
-	public isCollapsed = true;
-  
-   monedasVigiladas= new Array();
+  public isCollapsed = true;
 
-  @Output() monedaSeleccionada=new EventEmitter<Object>();
+  monedasVigiladas = new Array();
 
-  constructor( public datosApi:AccesoApiService){
+  @Output() monedaSeleccionada = new EventEmitter<Object>();
+
+  constructor(public datosApi: AccesoApiService) {
 
   }
 
-  nuevoVigilado(moneda:Object){
+  nuevoVigilado(moneda: Object) {
     this.monedaSeleccionada.emit(moneda);
-
-    /*this.monedasVigiladas.push(moneda);
-    console.log(this.monedasVigiladas);*/
   }
 
 }

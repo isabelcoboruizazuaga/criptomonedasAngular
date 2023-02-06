@@ -10,12 +10,12 @@ export class PortfolioComponent {
 
   monedasVigiladas = new Array();
   moneda!: Object;
-  monedas=new Array();
+  monedas = new Array();
 
 
-  constructor(private http:HttpClient) {
-    if (localStorage.getItem('monedasVigiladas')!=null && localStorage.getItem('monedasVigiladas')!=undefined) {
-      this.monedasVigiladas=JSON.parse(String(localStorage.getItem('monedasVigiladas')));
+  constructor(private http: HttpClient) {
+    if (localStorage.getItem('monedasVigiladas') != null && localStorage.getItem('monedasVigiladas') != undefined) {
+      this.monedasVigiladas = JSON.parse(String(localStorage.getItem('monedasVigiladas')));
       console.log(this.monedasVigiladas)
     }
 
@@ -26,5 +26,11 @@ export class PortfolioComponent {
       this.monedasVigiladas.push(moneda);
       localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
     }
+  }
+
+  deleteCoin(moneda: any) {
+    let i = this.monedasVigiladas.findIndex(x => x.id === moneda.id);
+    this.monedasVigiladas.splice(i, 1);
+    localStorage.setItem('monedasVigiladas', JSON.stringify(this.monedasVigiladas));
   }
 }

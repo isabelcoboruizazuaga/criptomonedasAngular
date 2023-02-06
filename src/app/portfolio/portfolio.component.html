@@ -1,2 +1,2 @@
-<app-cabecera-portfolio (monedaSeleccionada)="addToSelected($event)"></app-cabecera-portfolio>
-<app-monedas [monedasVigiladas]="monedasVigiladas" ></app-monedas>
+<app-cabecera-portfolio (monedaSeleccionada)=addToSelected($event)></app-cabecera-portfolio>
+<app-monedas [monedasVigiladas]="monedasVigiladas" (monedaBorrada)=deleteCoin($event)></app-monedas>
